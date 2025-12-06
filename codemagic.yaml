@@ -8,6 +8,7 @@ workflows:
         - codemagic_android
       vars:
         PACKAGE_NAME: "com.sealmaster.billing"
+        GEMINI_API_KEY: $GEMINI_API_KEY
       node: 18
       java: 17
     scripts:
@@ -17,8 +18,6 @@ workflows:
       - name: Build web app
         script: |
           npm run build
-        env:
-          GEMINI_API_KEY: $GEMINI_API_KEY
       - name: Sync Capacitor
         script: |
           npx cap sync android
